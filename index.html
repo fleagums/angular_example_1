@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="angular.js@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <script>
+    var Controller1 = function($scope) {
+     $scope.lists= [
+          { thing: 'Gym', name: 'The Situation' },
+          { thing: 'Tan', name: 'Snookie'},
+          { thing: 'Laundry', name: 'Sammy' },
+          { thing: 'Jagerbombs', name:'DJ Pauly D' },
+        ];
+     $scope.addAnItemToTheList = function(value) {
+          $scope.lists.push({
+            thing: value,
+          });
+          $scope.thingToAdd = '';
+        }
+        }
+    </script>
+  </head>
+
+  <body>
+    <div ng-app ng-controller="Controller1">
+    <h1>My Obligations</h1>
+      <ol>
+         <li ng-repeat="list in lists">{{list.thing}}</></li>
+      </ol>
+      <input ng-model="thingToAdd" /><button ng-click="addAnItemToTheList(thingToAdd)" ng-model="thingToAdd">Add Item</button>
+    </div>
+  </body>
+
+</html>
